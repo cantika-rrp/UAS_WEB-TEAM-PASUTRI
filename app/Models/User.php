@@ -19,10 +19,15 @@ class User extends Authenticatable
      * @var list<string>
      */
     protected $fillable = [
-        'name',
-        'email',
-        'password',
-    ];
+    'name',
+    'email',
+    'password',
+    'phone_number',
+    'birth_date',
+    'profile_picture',
+    'verification_code', // Tambahkan ini
+    'is_verified',       // Tambahkan ini
+];
 
     /**
      * The attributes that should be hidden for serialization.
@@ -44,6 +49,7 @@ class User extends Authenticatable
         return [
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
+            'birth_date' => 'date', // 4. Tambahkan ini supaya Laravel otomatis mengubah string menjadi objek tanggal/date
         ];
     }
 }
