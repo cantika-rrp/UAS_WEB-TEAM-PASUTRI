@@ -3,5 +3,9 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PageController;
 
-Route::get('/', [PageController::class, 'landing'])->name('landing');
-Route::get('/gallery', [PageController::class, 'gallery'])->name('gallery');
+Route::get('/', function () {
+    return response()->json([
+        'message' => 'Welcome to Laravel Backend API',
+        'status' => 'Active'
+    ]);
+});
